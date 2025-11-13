@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quên Mật Khẩu - Tư vấn Sức khỏe</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔑</text></svg>"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body
+    class="flex min-h-dvh items-center justify-center overflow-hidden font-sans p-4"
+  >
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div
+        class="absolute top-20 left-20 w-64 h-64 bg-emerald-300 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-float"
+      ></div>
+      <div
+        class="absolute top-40 right-20 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-float"
+        style="animation-delay: 1s"
+      ></div>
+      <div
+        class="absolute bottom-20 left-1/2 w-80 h-80 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-float"
+        style="animation-delay: 2s"
+      ></div>
+    </div>
+
+    <div
+      id="formContainer"
+      class="relative w-full max-w-md glass-effect rounded-3xl p-8 shadow-2xl"
+      style="animation: fadeIn 0.5s ease-out"
+    >
+      <div class="text-center">
+        <div
+          class="inline-flex items-center justify-center w-20 h-20 mb-5 rounded-2xl medical-icon shadow-lg animate-pulse-slow"
+        >
+          <i class="fa-solid fa-key text-4xl text-white"></i>
+        </div>
+        <h2
+          id="formTitle"
+          class="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-green-700 bg-clip-text text-transparent mb-2"
+        >
+          Quên mật khẩu
+        </h2>
+        <p id="formSubtitle" class="text-sm text-slate-600">
+          Nhập email để đặt lại mật khẩu của bạn
+        </p>
+      </div>
+
+      <form id="forgotForm" data-step="1" class="mt-8 space-y-5">
+        <div
+          id="errorMsg"
+          class="hidden rounded-xl bg-red-50 p-3.5 text-sm text-red-700 border border-red-200 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span id="errorText"></span>
+        </div>
+
+        <div id="step1-group" class="space-y-5">
+          <div>
+            <label
+              for="email"
+              class="mb-2 block text-sm font-semibold text-slate-700 flex items-center gap-2"
+            >
+              <i class="fa-solid fa-envelope text-emerald-600"></i>
+              Email đã đăng ký
+            </label>
+            <input
+              type="email"
+              id="email"
+              placeholder="example@email.com"
+              class="input-focus w-full rounded-xl border-slate-300 shadow-sm transition-all px-4 py-3 text-sm"
+              required
+            />
+          </div>
+        </div>
+
+        <div id="step2-group" class="hidden space-y-5">
+          <div>
+            <label
+              for="password"
+              class="mb-2 block text-sm font-semibold text-slate-700 flex items-center gap-2"
+            >
+              <i class="fa-solid fa-lock text-emerald-600"></i>
+              Mật khẩu mới
+            </label>
+            <div class="relative">
+              <input
+                type="password"
+                id="password"
+                placeholder="••••••••"
+                class="input-focus w-full rounded-xl border-slate-300 shadow-sm transition-all px-4 py-3 pr-10 text-sm"
+              />
+              <i
+                id="togglePassword"
+                class="fa-solid fa-eye absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-slate-400 hover:text-emerald-600"
+              ></i>
+            </div>
+            <p class="mt-1.5 text-xs text-slate-500 flex items-center gap-1">
+              <i class="fa-solid fa-info-circle"></i>
+              Tối thiểu 8 ký tự
+            </p>
+          </div>
+          <div>
+            <label
+              for="confirmPassword"
+              class="mb-2 block text-sm font-semibold text-slate-700 flex items-center gap-2"
+            >
+              <i class="fa-solid fa-check-double text-emerald-600"></i>
+              Xác nhận mật khẩu mới
+            </label>
+            <div class="relative">
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="••••••••"
+                class="input-focus w-full rounded-xl border-slate-300 shadow-sm transition-all px-4 py-3 pr-10 text-sm"
+              />
+              <i
+                id="toggleConfirmPassword"
+                class="fa-solid fa-eye absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-slate-400 hover:text-emerald-600"
+              ></i>
+            </div>
+          </div>
+        </div>
+        <div class="pt-2">
+          <button
+            id="submitButton"
+            type="submit"
+            class="gradient-button flex w-full items-center justify-center gap-2 rounded-xl p-3.5 text-sm font-semibold text-white shadow-lg"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+            Tiếp tục
+          </button>
+        </div>
+
+        <div class="text-center text-sm pt-2">
+          <span class="text-slate-600">Bạn đã nhớ mật khẩu?</span>
+          <a
+            href="login.html"
+            class="font-semibold text-emerald-600 hover:text-emerald-700 ml-1 hover:underline"
+          >
+            Đăng nhập
+          </a>
+        </div>
+      </form>
+    </div>
+
+    <script src="auth.js" defer></script>
+  </body>
+</html>
